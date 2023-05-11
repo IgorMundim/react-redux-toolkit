@@ -28,18 +28,18 @@ const cartSlice = createSlice({
     },
     increaseProductQuantity: (state: CartProduct, action) => {
       state.products = state.products.map((product: ProductProps) =>
-        product.id === action.payload ? { ...product, quantity: product.quantity + 1 } : product
+        product.id === action.payload.id ? { ...product, quantity: product.quantity + 1 } : product
       );
     },
     decreaseProductQuantity: (state: CartProduct, action) => {
       state.products = state.products
         .map((product: ProductProps) =>
-          product.id === action.payload ? { ...product, quantity: product.quantity - 1 } : product
+          product.id === action.payload.id ? { ...product, quantity: product.quantity - 1 } : product
         )
         .filter((product: ProductProps) => product.quantity > 0);
     },
     removeProduct: (state: CartProduct, action) => {
-      state.products = state.products.filter((product: ProductProps) => product.id === action.payload.id);
+      state.products = state.products.filter((product: ProductProps) => product.id !== action.payload.id);
     },
   },
 });

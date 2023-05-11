@@ -16,15 +16,15 @@ interface CartItemProps {
 const CartItem = ({ product }: CartItemProps) => {
   const dispatch = useDispatch();
   const handleRemoveClick = () => {
-    dispatch(removeProduct(product.id));
+    dispatch(removeProduct(product));
   };
 
   const handleIncreaseClick = () => {
-    dispatch(increaseProductQuantity(product.id));
+    dispatch(increaseProductQuantity(product));
   };
 
   const handleDecreaseClick = () => {
-    dispatch(decreaseProductQuantity(product.id));
+    dispatch(decreaseProductQuantity(product));
   };
 
   return (
